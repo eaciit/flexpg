@@ -30,7 +30,7 @@ func init() {
 func (c *Connection) Connect() error {
 	sqlconnstring := toolkit.Sprintf("%s/%s", c.Host, c.Database)
 	if c.User != "" {
-		sqlconnstring = toolkit.Sprintf("%s:%s/%s", c.User, c.Password, sqlconnstring)
+		sqlconnstring = toolkit.Sprintf("%s:%s@%s", c.User, c.Password, sqlconnstring)
 	}
 	sqlconnstring = "postgres://" + sqlconnstring
 	configs := strings.Join(func() []string {
